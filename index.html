@@ -1,0 +1,57 @@
+<Doctype html>
+    <html ng-app="animeApp">
+        <head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+            <link rel="stylesheet" href="CSS/bootstrap.css">
+            <link rel="stylesheet" href="CSS/bootstrap.min.css">
+            <link rel="stylesheet" href="CSS/animate.css">
+            <script src="scripts/bootstrap.js"></script>
+            <script src="scripts/angular.js"></script>
+            <script src="scripts/app.js"></script>
+        </head>
+        <body style="background-color: darkgrey">
+            <div class="container" ng-controller="animeCtrl"> 
+                <h1><strong>Detective L</strong></h1>
+                <h3><strong>{{personaje.nombre}}</strong></h3>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <section class="panel">
+                            <div class="panel-body" align="center">
+                                <img src="{{personaje.imagen}}" class="rounded-circle">
+                            </div>
+                        </section>
+                    </div>
+                
+                    <div class="col-sm-7">
+                        <section class="panel">
+                            <div class="panel-body">
+                                <strong>Biografia:</strong> {{personaje.bio}}<br>
+                                <strong>Edad:</strong> {{personaje.edad}} <br>
+                                <button type="button" class="btn btn-primary" ng-click="editarCampos()" ng-show="mostrarCaja"
+                                >Editar</button><br>
+                            </div>
+                        </section>
+                    </div>
+                </div><hr> 
+                <div class="row">       
+                        <div class="col-sm-9">
+                            <h6><strong>Nombre:</strong></h6>
+                            <input type="text" class="form-control" placeholder="Ingrese nombre" 
+                            ng-model="editando.nombre">
+                        </div>
+                        <div class="col-sm-9">
+                            <h6><strong>Edad:</strong></h6>
+                            <input type="text" class="form-control" placeholder="Ingrese edad" ng-model="editando.edad">
+                        </div>
+                        <div class="col-sm-9">
+                            <h6><strong>Biografia:</strong></h6>
+                            <textarea class="form-control" placeholder="Ingrese Biografia" ng-model="editando.bio"></textarea><br>
+                        </div>
+                        <div class="col-sm-9">
+                            <button type="button" class="btn btn-primary" ng-click="guardarCampos()">Guardar</button>
+                            <button type="button" class="btn btn-danger" ng-click="cancelarCambios()">Cancelar</button>
+                        </div>
+                </div>
+            </div>
+        </body>
+    </html>
